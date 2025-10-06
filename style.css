@@ -1,0 +1,270 @@
+/* Variáveis de Cores (para facilitar a manutenção) */
+:root {
+    --color-dark-bg: #1A1A1A; /* Fundo escuro */
+    --color-header-bg: #1A1A1A; /* Fundo do cabeçalho */
+    --color-primary-text: #FFFFFF; /* Texto principal (branco) */
+    --color-secondary-text: #B0B0B0; /* Texto secundário (cinza claro) */
+    --color-highlight-green: #39FF14; /* Verde do botão/destaque */
+    --color-card-bg: #333333; /* Fundo dos cards */
+    --color-neon-blue: #00FFFF; /* Azul/Ciano Neon */
+    --color-neon-purple: #9933FF; /* Roxo Neon */
+}
+
+/* Reset básico e Fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-dark-bg);
+    color: var(--color-primary-text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary-text);
+}
+
+/* --- Cabeçalho (Header) --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: var(--color-header-bg);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    color: var(--color-neon-blue);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 30px;
+}
+
+.main-nav a {
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--color-neon-blue);
+}
+
+/* --- Seção Hero (Destaque) --- */
+.hero-section {
+    /* Padding para compensar o cabeçalho fixo */
+    padding-top: 80px; 
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    position: relative;
+    overflow: hidden; /* Garante que o pseudo-elemento fique dentro */
+}
+
+/* Efeito de Fundo Tecnológico (circuito) usando pseudo-elemento e gradiente */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Substitua a URL por uma imagem de fundo de circuito ou use um gradiente */
+    /* Exemplo com gradiente para simular o efeito neon */
+    background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), 
+                url('https://via.placeholder.com/1500x550/000000/FFFFFF?text=Fundo+Tecnologico') center/cover;
+    background-blend-mode: overlay;
+    /* Efeitos de brilho e cor para simular o neon */
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.9);
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 800px;
+    text-align: left;
+    padding: 20px;
+    z-index: 2; /* Para ficar acima do fundo */
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-primary-text);
+    /* Efeito de destaque para parecer o texto da imagem */
+    text-shadow: 0 0 10px var(--color-neon-blue);
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--color-primary-text);
+    text-shadow: 0 0 10px var(--color-neon-purple);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--color-secondary-text);
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-highlight-green);
+    color: #1A1A1A; /* Texto escuro no botão verde */
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    background-color: #4aff2d; /* Verde mais claro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(57, 255, 20, 0.4);
+}
+
+/* --- Seção de Cursos (Cards) --- */
+.courses-section {
+    padding: 80px 50px;
+    background-color: var(--color-dark-bg);
+}
+
+.courses-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.course-card {
+    flex: 1; /* Permite que os cards cresçam igualmente */
+    background-color: var(--color-card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    /* Gradiente ou cor única para o ícone */
+    background: linear-gradient(45deg, var(--color-neon-blue), var(--color-neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.course-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-primary-text);
+}
+
+.course-card p {
+    font-size: 0.95rem;
+    color: var(--color-secondary-text);
+    margin-bottom: 25px;
+    min-height: 50px; /* Para manter a altura dos cards mais uniforme */
+}
+
+.course-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-highlight-green);
+    color: #1A1A1A;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.course-button:hover {
+    background-color: #4aff2d;
+}
+
+/* --- Responsividade (Media Queries) --- */
+
+/* Para telas menores (Ex: Tablets ou Mobile) */
+@media (max-width: 900px) {
+    .courses-container {
+        flex-direction: column; /* Cards empilham em telas menores */
+    }
+
+    .course-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .main-header {
+        padding: 15px 20px;
+    }
+
+    .main-nav {
+        display: none; /* Esconder navegação principal no mobile (pode ser substituída por um menu hambúrguer com JS) */
+    }
+}
+
+/* Para telas ainda menores (Ex: Mobile) */
+@media (max-width: 600px) {
+    .hero-section {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+}
